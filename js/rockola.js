@@ -11,20 +11,26 @@ class Rockola{
 		this.canciones.push(cancion);
 	}
 
-	obtener(){
-		function banda(nombre){
-			return this.canciones.filter((cancion)=>{
-				return cancion.banda.nombre==nombre;
-			});
-		}
-		function album(nombre){
-			return this.canciones.filter((cancion)=>{
-				return cancion.album.nombre==nombre;
-			});
-		}
-		function cancion(){
-			return this.cancion;
-		}
+	obtenerBanda(banda){
+		return this.canciones.filter((cancion)=>{
+			return cancion.banda.nombre==banda;
+		});
+	}
+
+	obtenerAlbum(banda,album){
+		return banda.filter((cancion)=>{
+			return cancion.banda==banda && cancion.album==album;
+		});
+	}
+
+	obtenerGenero(nombre){
+		return this.canciones.filter((cancion)=>{
+			return cancion.banda.genero==nombre;
+		});
+	}
+
+	obtenerCancion(){
+		return this.cancion;
 	}
 
 	ponerMoneda(){
