@@ -26,7 +26,7 @@ moneda.addEventListener("click",()=>{
 			this.rockola.creditos=Util.creditos;
 			this.creditos.innerHTML=this.rockola.creditos;
 		}else{
-			this.moneda.style.top=(top-1)+"px";
+			this.moneda.style.top=(top-5)+"px";
 		}
 	},1);
 });

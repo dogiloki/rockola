@@ -1,7 +1,7 @@
 class Datos{
 
 	constructor(){
-		let ruta="file:///E:/Música/";
+		let ruta="assets/";
 		this.bandas={
 			metallica:new Banda("Metallica",[
 				"Lars Ulrich",
@@ -55,13 +55,13 @@ class Datos{
 			]
 		}
 		this.canciones=[
-			new Cancion(null,ruta+"Metallica/All Nightmare Long.m4a","All Nightmare Long",this.bandas.metallica,this.album.metallica[0]),
-			new Cancion(null,ruta+"Metallica/Enter sandman.mp3","Enter sandman",this.bandas.metallica,this.album.metallica[1]),
-			new Cancion(null,ruta+"Metallica/Frantic.mp3","Frantic",this.bandas.metallica,this.album.metallica[2]),
-			new Cancion(null,ruta+"Eisbrecher/Das Gesetz.m4a","Das Gesetz",this.bandas.eisbrecher,this.album.eisbrecher[0]),
-			new Cancion(null,ruta+"Epica/Crimson Bow and Arrow.mp3","Crimson Bow and Arrow",this.bandas.epica,this.album.epica[0]),
-			new Cancion(null,ruta+"Lindemann/Fish On.m4a","Fish On",this.bandas.linderman,this.album.linderman[0]),
-			new Cancion(null,ruta+"Megadeth/Symphony Of Destruction.m4a","Symphony Of Destruction",this.bandas.megadeth,this.album.megadeth[0])
+			new Cancion(null,ruta+"metallica/All Nightmare Long.m4a","All Nightmare Long",this.bandas.metallica,this.album.metallica[0]),
+			new Cancion(null,ruta+"metallica/Enter sandman.mp3","Enter sandman",this.bandas.metallica,this.album.metallica[1]),
+			new Cancion(null,ruta+"metallica/Frantic.mp3","Frantic",this.bandas.metallica,this.album.metallica[2]),
+			new Cancion(null,ruta+"eisbrecher/Das Gesetz.m4a","Das Gesetz",this.bandas.eisbrecher,this.album.eisbrecher[0]),
+			new Cancion(null,ruta+"epica/Crimson Bow and Arrow.mp3","Crimson Bow and Arrow",this.bandas.epica,this.album.epica[0]),
+			new Cancion(null,ruta+"linderman/Fish On.m4a","Fish On",this.bandas.linderman,this.album.linderman[0]),
+			new Cancion(null,ruta+"megadeth/Symphony Of Destruction.m4a","Symphony Of Destruction",this.bandas.megadeth,this.album.megadeth[0])
 		];
 	}
 
