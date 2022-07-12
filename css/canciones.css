@@ -1,0 +1,50 @@
+.content-canciones{
+	background: #f5f5f5;
+	padding: 20px;
+	max-height: 500px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin-bottom: 50px;
+}
+.content-canciones .cancion{
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0px 1px #c2c2c2;
+}
+.content-canciones .cancion .titulo{
+	color: #353535;
+	font-size: 20px;
+}
+.content-reproductor{
+	width: 100vw;
+	padding: 10px;
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	display: flex;
+	align-items: center;
+	background: #262626;
+	color: #ffffff;
+}
+.content-reproductor .duracion{
+	font-size: 20px;
+}
+.content-reproductor .progreso{
+	width: 100%;
+	background: #f5f5f5;
+	height: 5px;
+	margin: 0px 10px 0px 10px;
+}
+.content-reproductor .btn{
+	margin: 0px 10px 0px 10px;
+	font-size: 20px;
+	user-select: none;
+	cursor: pointer;
+}
+.content-reproductor .btn:hover{
+	color: #0074c7;
+}
+.content-reproductor .volumen{
+	margin-right: 30px;
+}

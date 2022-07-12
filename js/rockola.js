@@ -2,8 +2,29 @@ class Rockola{
 
 	constructor(){
 		this.creditos=0;
-		this.canciones=new Datos().obtener();
-		// Almaneca la cacion seleccionada (hace referencia al objeto de la lista de canciones)
+		let datos=new Datos().obtener();
+		this.canciones=datos.canciones;
+		this.bandas=datos.bandas;
+		// Convertir JSON en iterable
+		this.bandas[Symbol.iterator]=function(){
+			let indice=0;
+			let valores=Object.values(this); // Convertir en un array los valores de un objeto
+			return {
+				next(){ // Cada iteración llamara al método next()
+					if(indice>=valores.length){
+						return{ 
+							done: true,
+							value: undefined
+						};
+					}
+					return {
+						done: false,
+						value: valores[indice++]
+					};
+				}
+			}
+		};
+		// Almaneca la cación seleccionada (hace referencia al objeto de la lista de canciones)
 		this.cancion=this.canciones[0];
 	}
 
@@ -14,18 +35,6 @@ class Rockola{
 	obtenerBanda(banda){
 		return this.canciones.filter((cancion)=>{
 			return cancion.banda.nombre==banda;
-		});
-	}
-
-	obtenerAlbum(banda,album){
-		return banda.filter((cancion)=>{
-			return cancion.banda==banda && cancion.album==album;
-		});
-	}
-
-	obtenerGenero(nombre){
-		return this.canciones.filter((cancion)=>{
-			return cancion.banda.genero==nombre;
 		});
 	}
 
