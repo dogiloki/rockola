@@ -48,5 +48,7 @@ class Util{
 		play:"▶",
 		pause:"⏸"
 	};
+
+	static creditos=3;
 	
 }

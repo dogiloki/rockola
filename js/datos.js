@@ -8,7 +8,7 @@ class Datos{
 				"James Hetfield",
 				"Kirk Hammett",
 				"Robert Trujillo"
-			],"Metal",1980,"assets/metallica/banda.jpg"),
+			],"Metal",1981,"assets/metallica/banda.jpg"),
 			eisbrecher:new Banda("Eisbrecher",[
 				"Alexander Wesselsky",
 				"Jochen Seibert",
@@ -27,7 +27,13 @@ class Datos{
 			linderman:new Banda("Linderman",[
 				"Til Linderman",
 				"Peter Tägtgren"
-			],"Metal Insdustrial",2015,"assets/linderman/banda.jpg")
+			],"Metal Insdustrial",2015,"assets/linderman/banda.jpg"),
+			megadeth:new Banda("Megadeth",[
+				"Dave Mustaine",
+				"Kiko Loureiro",
+				"Dirk Verbeuren",
+				"James LoMenzo"
+			],"Heavy Metal",1983,"assets/megadeth/banda.jpg")
 		};
 		this.album={
 			metallica:[
@@ -43,6 +49,9 @@ class Datos{
 			],
 			linderman:[
 				new Album("Skills in Pills","assets/linderman/skills_in_pills.png")
+			],
+			megadeth:[
+				new Album("Countdown to Extinction","assets/megadeth/countdown_to_extinction.jpg")
 			]
 		}
 		this.canciones=[
@@ -51,7 +60,8 @@ class Datos{
 			new Cancion(null,ruta+"Metallica/Frantic.mp3","Frantic",this.bandas.metallica,this.album.metallica[2]),
 			new Cancion(null,ruta+"Eisbrecher/Das Gesetz.m4a","Das Gesetz",this.bandas.eisbrecher,this.album.eisbrecher[0]),
 			new Cancion(null,ruta+"Epica/Crimson Bow and Arrow.mp3","Crimson Bow and Arrow",this.bandas.epica,this.album.epica[0]),
-			new Cancion(null,ruta+"Lindemann/Fish On.m4a","Fish On",this.bandas.linderman,this.album.linderman[0])
+			new Cancion(null,ruta+"Lindemann/Fish On.m4a","Fish On",this.bandas.linderman,this.album.linderman[0]),
+			new Cancion(null,ruta+"Megadeth/Symphony Of Destruction.m4a","Symphony Of Destruction",this.bandas.megadeth,this.album.megadeth[0])
 		];
 	}
 

@@ -10,9 +10,26 @@ var progreso=document.getElementById('progreso');
 var duracion_actual=document.getElementById('duracion-actual');
 var duracion_total=document.getElementById('duracion-total');
 var volumen=document.getElementById('volumen');
+var creditos=document.getElementById('creditos');
+var moneda=document.getElementById('moneda');
 var intervalo_audio;
 var rockola=new Rockola();
+creditos.innerHTML=this.rockola.creditos;
+this.moneda.style.top="150px";
 
+moneda.addEventListener("click",()=>{
+	let intervalo;
+	intervalo=setInterval(()=>{
+		let top=this.moneda.style.top.replace("px","");
+		if(top<=20){
+			clearTimeout(intervalo);
+			this.rockola.creditos=Util.creditos;
+			this.creditos.innerHTML=this.rockola.creditos;
+		}else{
+			this.moneda.style.top=(top-1)+"px";
+		}
+	},1);
+});
 btn_ante.addEventListener("click",()=>{
 	let cantidad=Object.keys(this.rockola.bandas).length;
 	let aumento_deg=360/cantidad;
@@ -74,6 +91,7 @@ function cargarCanciones(nombre){
 		return Util.palabraMayor(a.album.nombre>b.album.nombre)?-1:!Util.palabraMayor(a.album.nombre,b.album.nombre)?1:0;
 	});
 	this.content_canciones.innerHTML="";
+	let album_anterior;
 	canciones.forEach((cancion)=>{
 		let content_cancion=this.template_cancion.cloneNode(true);
 		let btn_add_list=content_cancion.getElementById('btn-add-list');
@@ -81,10 +99,20 @@ function cargarCanciones(nombre){
 		let titulo=content_cancion.getElementById('titulo');
 		titulo.innerHTML=cancion.titulo;
 		btn_reproducir.addEventListener("click",()=>{
+			if(this.rockola.creditos<=0){
+				alert("No tienes creditos");
+				return;
+			}
 			this.audio.src=cancion.audio;
 			this.audio.currentTime=0;
 			this.reproducir(true);
 		});
+		if(album_anterior!=cancion.album.nombre){
+			let nombre_album=document.createElement("strong");
+			nombre_album.innerHTML=cancion.album.nombre;
+			album_anterior=cancion.album.nombre;
+			this.content_canciones.appendChild(nombre_album);
+		}
 		this.rockola.cancion=cancion;
 		this.content_canciones.appendChild(content_cancion);
 	});
@@ -93,6 +121,18 @@ function cargarCanciones(nombre){
 function reproducir(play=null){
 	if(this.audio.src==""){
 		return;
+	}
+	console.log(play);
+	if(play!=false && (this.audio.currentTime<=0 || this.audio.currentTime>=this.audio.duration)){
+		if(this.rockola.creditos<=0 && play==null){
+			alert("No tienes creditos");
+			return;
+		}
+		if(this.rockola.creditos<=1){
+			this.moneda.style.top="150px";
+		}
+		this.rockola.creditos--;
+		this.creditos.innerHTML=this.rockola.creditos;
 	}
 	if(play==null){
 		if(this.audio.paused){
